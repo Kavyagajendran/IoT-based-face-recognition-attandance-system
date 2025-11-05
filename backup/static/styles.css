@@ -1,0 +1,39 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.alert {
+    margin-top: 20px;
+}
+
+.btn-lg {
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+}
+
+.form-text {
+    font-size: 0.875em;
+    color: #6c757d;
+}
+
+.img-thumbnail {
+    border-radius: 50%;
+}
+.table th {
+    white-space: nowrap;
+}

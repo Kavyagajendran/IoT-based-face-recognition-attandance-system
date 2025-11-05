@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Register New Employee</h4>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('register') }}">
+                        <div class="mb-3">
+                            <label for="employee_name" class="form-label">Employee Name</label>
+                            <input type="text" class="form-control" id="employee_name" name="employee_name" required>
+                            <div class="form-text">Only alphabets, numbers and spaces are allowed</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Start Face Capture</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="mt-3">
+                <div class="alert alert-info d-none">
+                    <strong>Note:</strong> When you click the button, the webcam will open and capture 10 images.
+                    Please move your face slightly between captures for better recognition accuracy.
+                </div>
+                <div class="alert alert-info">
+                    <strong><i class="fas fa-info-circle me-2"></i>Registration Instructions:</strong>
+                    <ul class="mt-3 mb-2">
+                        <li><i class="fas fa-camera me-2"></i>The webcam will capture 10 images of your face</li>
+                        <li><i class="fas fa-arrows-alt me-2"></i>Follow these angle prompts:</li>
+                    </ul>
+
+                    <div class="row mt-2 g-2">
+                        {% for icon, instruction in [
+                            ("fa-eye", "1. Look straight ahead"),
+                            ("fa-undo", "2. Turn slightly left"),
+                            ("fa-redo", "3. Turn slightly right"),
+                            ("fa-arrow-up", "4. Look up slightly"),
+                            ("fa-arrow-down", "5. Look down slightly"),
+                            ("fa-angle-double-left", "6. Tilt head left"),
+                            ("fa-angle-double-right", "7. Tilt head right"),
+                            ("fa-user-minus", "8. Show left profile"),
+                            ("fa-user-plus", "9. Show right profile"),
+                            ("fa-smile", "10. Natural expression")
+                        ] %}
+                        <div class="col-md-4 col-sm-6">
+                            <div class="p-0 border rounded">
+                                <i class="fas {{ icon }} me-2 text-primary"></i>
+                                <small>{{ instruction }}</small>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mt-3">
+                        <small class="text-muted">
+                            <i class="fas fa-lightbulb me-1"></i>
+                            Move naturally between captures for optimal recognition
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

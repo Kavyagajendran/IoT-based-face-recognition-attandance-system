@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between">
+                        <h4>Today's Attendance</h4>
+                        <span class="badge bg-primary">
+                            Registered Faces: {{ face_count }}
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for record in attendance %}
+                                <tr>
+                                    <td>{{ record["name"] }}</td>
+                                    <td>{{ record["check_in"] }}</td>
+                                    <td>{{ record["check_out"] if record["check_out"] else '-' }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="3" class="text-center">No attendance records for today</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>            
+            
+            
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Quick Actions</h5>
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('register') }}" class="btn btn-primary">Register New User</a>
+                        <a href="{{ url_for('mark_attendance') }}" class="btn btn-success">Mark Attendance</a>
+                        <a href="{{ url_for('attendance_report') }}" class="btn btn-info">View Reports</a>
+                        <a href="{{ url_for('manage_employees') }}" class="btn btn-warning">Manage Employees</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
