@@ -18,7 +18,7 @@ import tkinter as tk
 import locale
 
 app = Flask(__name__)
-app.secret_key = '9751044317'  # The app.secret_key is used for security-related operations in a Flask application, primarily for Session, Flash message, Cookie Tampering
+app.secret_key = ''  # The app.secret_key is used for security-related operations in a Flask application, primarily for Session, Flash message, Cookie Tampering
 app.config['UPLOAD_FOLDER'] = 'employee_images'
 app.config['KNOWN_FACES'] = 'known_faces'
 app.config['DATABASE'] = 'attendance.db'
@@ -817,4 +817,5 @@ if __name__ == '__main__':
         app.run(port=12000, debug=False, threaded=False)
     else:
         app.run(port=12000, debug=True, threaded=False)
+
 
