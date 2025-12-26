@@ -7,7 +7,6 @@
 <p align="center">
   <b>Automated Attendance Management Using Computer Vision and IoT</b>
 </p>
-
 ---
 
 ## Project Description
